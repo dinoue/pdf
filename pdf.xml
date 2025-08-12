@@ -28,6 +28,12 @@
     	<br />- additional data from some plugins
     	<br />- one or many object(s) in a file
 	]]></en>
+         <ja><![CDATA[機器の情報を選択し、PDF に出力するプラグインです。
+    	<br />- GLPI から機器の型
+    	<br />- 他のプラグインから機器の型
+    	<br />- 他のプラグインから追加のデータadditional data from some plugins
+    	<br />- ファイルのオブジェクト
+	]]></ja>
        </long>
    </description>
    <homepage>https://github.com/pluginsGLPI/pdf</homepage>
@@ -194,6 +200,7 @@
       <lang>hr_HR</lang>
       <lang>hu_HU</lang>
       <lang>it_IT</lang>
+      <lang>ja_JP</lang>
       <lang>lv_LV</lang>
       <lang>nl_NL</lang>
       <lang>pl_PL</lang>
