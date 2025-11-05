@@ -34,9 +34,9 @@ class PluginPdfComputer extends PluginPdfCommon
 {
     public static $rightname = 'plugin_pdf';
 
-    public function __construct(CommonGLPI $obj = null)
+    public function __construct(?CommonGLPI $obj = null)
     {
-        $this->obj = ($obj ? $obj : new Computer());
+        $this->obj = ($obj ?: new Computer());
     }
 
     public function defineAllTabsPDF($options = [])
