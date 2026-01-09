@@ -36,7 +36,7 @@ class PluginPdfProfile extends Profile
 
     public static function getTypeName($nb = 0)
     {
-        return _sn('PDF export', 'PDF export', $nb, 'pdf');
+        return __s('PDF export', 'pdf');
     }
 
     public function rawSearchOptions()
@@ -67,8 +67,7 @@ class PluginPdfProfile extends Profile
 
         $real_right = ProfileRight::getProfileRights($ID, ['plugin_pdf']);
         $checked    = 0;
-        if (isset($real_right)
-            && ($real_right['plugin_pdf'] == 1)) {
+        if ($real_right['plugin_pdf'] == 1) {
             $checked = 1;
         }
         echo "<table class='tab_cadre_fixe'>";

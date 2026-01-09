@@ -311,7 +311,7 @@ class PluginPdfItem_SoftwareVersion extends PluginPdfCommon
             'ORDER'      => 'completename'];
 
         foreach ($DB->request($sql) as $ID => $data) {
-            $nb = Item_SoftwareVersion::countForVersion($softwareversions_id, $ID);
+            $nb = Item_SoftwareVersion::countForVersion($softwareversions_id, (string) $ID);
             if ($nb > 0) {
                 $pdf->displayLine($data['completename'], $nb);
                 $tot += $nb;
@@ -498,19 +498,12 @@ class PluginPdfItem_SoftwareVersion extends PluginPdfCommon
                 ],
                 'glpi_softwareversions' => [
                     'ON' => [
-                        'OR' => [
-                            [
-                                'glpi_softwarelicenses' => 'softwareversions_id_use',
-                                'glpi_softwareversions' => 'id',
-                            ],
-                            [
-                                'AND' => [
-                                    'glpi_softwarelicenses.softwareversions_id_use' => 0,
-                                    [
-                                        'glpi_softwarelicenses' => 'softwareversions_id_buy',
-                                        'glpi_softwareversions' => 'id',
-                                    ],
-                                ],
+                        'glpi_softwarelicenses' => 'softwareversions_id_use',
+                        'glpi_softwareversions' => 'id',
+                        [
+                            'OR' => [
+                                'glpi_softwarelicenses.softwareversions_id_use' => 0,
+                                'glpi_softwarelicenses.softwareversions_id_buy' => 'glpi_softwareversions.id',
                             ],
                         ],
                     ],
